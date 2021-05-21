@@ -2,9 +2,7 @@ name: fake-service
 
 on:
   push:
-    branches: [ main ]
-  pull_request:
-    branches: [ main ]
+    branches: [ main, solution ]
 
 jobs:
 
@@ -13,7 +11,9 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Run Hadolint against Dockerfile
-      run: echo "Add Hadolint GitHub Actions here"
+      run: |
+        echo "Add Hadolint GitHub Actions here"
+        exit 1
 
   build:
     runs-on: ubuntu-latest

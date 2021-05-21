@@ -11,6 +11,9 @@ security in mind. Learn to use static analysis to check provisioning scripts for
 
 Bring your own machine and make sure you install prerequisites!
 
+> Note: If you find yourself struggling with the answer, check out
+  the `solutions` branch. You can also [review the slides](https://speakerdeck.com/joatmon08/exploring-policy-as-code) for this workshop.
+
 ## Step 0: Prerequisites
 
 ### Requirements
@@ -25,6 +28,11 @@ Download and install the following software:
 - [Docker for Desktop](https://www.docker.com/products/docker-desktop)
 - [Ruby](https://www.ruby-lang.org/en/documentation/installation/) 3.0+
 
+You will also need to set up a log infor the following:
+
+- GitHub
+- [Optional] Google Cloud Platform, review Step 4.
+
 ### Configure Chef Inspec
 
 1. Install Chef Inspec.
@@ -36,6 +44,13 @@ Download and install the following software:
    you review it first!
    ```shell
    inspec --chef-license=accept
+   ```
+
+1. Fork this repository.
+
+1. Clone your fork.
+   ```shell
+   git clone git@github.com:<your github id>/policy-as-code-workshop.git
    ```
 
 ## Step 1: Use static analysis for configuration
@@ -137,6 +152,12 @@ a running container.
    ```shell
    inspec exec test/integration -t docker://${CONTAINER_ID}
    ```
+
+1. You'll notice it fails! You need to correct the `Dockerfile`
+   so that the integration tests pass. You'll need a few things,
+   including:
+   - Run the container as a user `ubuntu` and group `ubuntu`.
+   - Set the default `ubuntu` user with a shell of `/bin/sh`.
 
 1. You can also try running the
    [CIS Benchmark](https://github.com/dev-sec/cis-docker-benchmark)

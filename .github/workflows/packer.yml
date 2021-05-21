@@ -5,9 +5,7 @@ name: fake-service-packer
 
 on:
   push:
-    branches: [ main ]
-  pull_request:
-    branches: [ main ]
+    branches: [ main, solution ]
 
 jobs:
   static-analysis-unit-tests:
