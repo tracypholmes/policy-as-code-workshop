@@ -1,0 +1,8 @@
+name: integration
+title: OWASP Policy As Code Workshop
+maintainer: Tracy P Holmes and Rosemary Wang
+copyright: Tracy P Holmes and Rosemary Wang
+copyright_email: tracy@howmybrain.works
+license: Apache-2.0
+summary: Verifies containter for sample application
+version: 0.1.0
